@@ -45,11 +45,13 @@
                 </v-btn>
               </v-form>
               <h3 class="font-weight-light mt-10 mb-n3">
-                Or contact by email:
+                Or contact by
                 <a
                   href="mailto:gfc.capital.dubai@gmail.com?subject=Marketplace seller"
-                  >Email Us</a
                 >
+                  email
+                </a>
+                : gfc.capital.dubai@gmail.com
               </h3>
               <h3 class="font-weight-light mt-3"></h3>
             </v-col>
@@ -122,6 +124,8 @@ export default {
       this.name = "";
       this.email = "";
       this.textArea = "";
+      this.lazy = false;
+      this.$refs.form.validate();
     },
   },
 };
