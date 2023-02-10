@@ -125,7 +125,7 @@ export default {
       this.email = "";
       this.textArea = "";
       this.lazy = false;
-      this.$refs.form.validate();
+      this.$refs.form.reset();
     },
   },
 };
