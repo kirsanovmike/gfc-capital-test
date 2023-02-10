@@ -118,7 +118,10 @@ export default {
   }),
   methods: {
     submit() {
-      alert("Thanks, we will contact you!")
+      alert("Thanks, we will contact you!");
+      this.name = "";
+      this.email = "";
+      this.textArea = "";
     },
   },
 };
