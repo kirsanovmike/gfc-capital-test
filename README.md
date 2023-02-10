@@ -1,4 +1,4 @@
-# gfc-capital Landing Page
+# gfc-capital-test Landing Page
 
 ## 🚀 Project setup
 ```

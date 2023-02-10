@@ -123,7 +123,7 @@ export default {
     items: [
       ["mdi-home-outline", "Home", "#hero"],
       ["mdi-information-outline", "About us", "#aboutus"],
-      ["mdi-currency-usd", "How we work", "#howwework"],
+      ["mdi-sitemap", "How we work", "#howwework"],
       ["mdi-currency-usd", "Benefits", "#benefits"],
       ["mdi-email-outline", "Contact us", "#contact"],
     ],
