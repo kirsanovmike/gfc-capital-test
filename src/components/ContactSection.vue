@@ -117,7 +117,9 @@ export default {
     },
   }),
   methods: {
-    submit() {},
+    submit() {
+      alert("Thanks, we will contact you!")
+    },
   },
 };
 </script>
