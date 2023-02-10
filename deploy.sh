@@ -14,6 +14,6 @@ git add -A
 git commit -m 'deploy'
 
 # публикация в ветку gh-pages
-git push -f git@github.com:kirsanovmike/gfc-capital.git master:gh-pages
+git push -f git@github.com:kirsanovmike/gfc-capital-test.git master:gh-pages
 
 cd -
