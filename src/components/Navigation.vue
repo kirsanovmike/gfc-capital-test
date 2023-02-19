@@ -13,7 +13,7 @@
             <img src="@/assets/img/logo.png" alt="Logo" />
           </v-list-item-avatar>
           <v-list-item-content>
-            <v-list-item-title class="title">GFC Capital</v-list-item-title>
+            <v-list-item-title class="title">Capital GFC</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>
@@ -24,7 +24,7 @@
           v-for="([icon, text, link], i) in items"
           :key="i"
           link
-          @click="$vuetify.goTo(link)"
+          @click="clickNavItem(link)"
         >
           <v-list-item-icon class="justify-center">
             <v-icon>{{ icon }}</v-icon>
@@ -58,16 +58,16 @@
               max-height="45px"
             />
             <h2 class="ml-4" style="color: #128c76; font-size: 1em">
-              GFC CAPITAL
+              CAPITAL GFC
             </h2>
           </v-layout>
         </v-toolbar-title>
         <!-- <v-spacer /> -->
         <v-app-bar-nav-icon
-          @click.stop="drawer = !drawer"
+          v-if="isXs"
           color="#128c76"
           class="mr-4"
-          v-if="isXs"
+          @click.stop="drawer = !drawer"
         />
         <div v-else>
           <v-btn text @click="$vuetify.goTo('#aboutus')">
@@ -132,12 +132,6 @@ export default {
     color: String,
     flat: Boolean,
   },
-  methods: {
-    onResize() {
-      this.isXs = window.innerWidth < 980;
-    },
-  },
-
   watch: {
     isXs(value) {
       if (!value) {
@@ -150,6 +144,15 @@ export default {
   mounted() {
     this.onResize();
     window.addEventListener("resize", this.onResize, { passive: true });
+  },
+  methods: {
+    clickNavItem(link) {
+      this.$vuetify.goTo(link);
+      this.drawer = false;
+    },
+    onResize() {
+      this.isXs = window.innerWidth < 980;
+    },
   },
 };
 </script>

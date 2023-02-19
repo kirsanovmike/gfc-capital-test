@@ -6,10 +6,12 @@
           <v-row justify="center">
             <v-col cols="12">
               <h1 class="font-weight-light display-2 mt-6">Contact us</h1>
-              <h2 class="font-weight-light display-1 mb-3 mt-2">
+              <p
+                class="font-weight-light display-1 mb-3 mt-2"
+                style="font-size: 28px !important"
+              >
                 If you are selling goods through a marketplace, write to us
-              </h2>
-              <h3 class="font-weight-light mt-3"></h3>
+              </p>
               <v-form ref="form" v-model="valid" :lazy-validation="lazy">
                 <v-text-field
                   v-model="name"
@@ -33,25 +35,27 @@
                 />
 
                 <v-btn
-                  :disabled="!valid"
                   color="#128c76"
-                  :dark="valid"
+                  dark
                   rounded
                   block
                   class="mt-3"
                   @click="submit"
                 >
-                  Submit
+                  Start now
                 </v-btn>
               </v-form>
               <h3 class="font-weight-light mt-10 mb-n3">
-                Or contact by
+                Or
                 <a
                   href="mailto:gfc.capital.dubai@gmail.com?subject=Marketplace seller"
                 >
-                  email
+                  contact
                 </a>
-                : gfc.capital.dubai@gmail.com
+                by email: gfc.capital.dubai@gmail.com
+                <v-btn icon dense @click="copyEmail">
+                  <v-icon color="#128c76">mdi-content-copy</v-icon>
+                </v-btn>
               </h3>
               <h3 class="font-weight-light mt-3"></h3>
             </v-col>
@@ -120,12 +124,24 @@ export default {
   }),
   methods: {
     submit() {
-      alert("Thanks, we will contact you!");
-      this.name = "";
-      this.email = "";
-      this.textArea = "";
-      this.lazy = false;
-      this.$refs.form.reset();
+      if (this.valid) {
+        alert("Thanks, we will contact you!");
+        this.name = "";
+        this.email = "";
+        this.textArea = "";
+        this.lazy = false;
+        this.$refs.form.reset();
+      } else {
+        this.$refs.form.validate();
+      }
+    },
+    copyEmail() {
+      this.$clipboard("gfc.capital.dubai@gmail.com");
+      this.$notify({
+        group: "email",
+        title: "Email copied!",
+        position: "bottom",
+      });
     },
   },
 };

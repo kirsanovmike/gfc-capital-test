@@ -1,6 +1,6 @@
 <template>
   <section id="howwework">
-    <v-container fluid class="pt-2 py-10">
+    <v-container fluid class="pt-2 py-10" style="background-color: #f4f7f5;">
       <v-row align="center" justify="center">
         <v-col cols="10">
           <v-row align="center" justify="start">
@@ -16,7 +16,7 @@
               <v-row class="mt-4">
                 <v-col cols="12" class="d-flex align-center">
                   <v-img
-                    src="@/assets/img/marketplace.png"
+                    src="@/assets/img/online-shopping (1).png"
                     max-width="60px"
                     class="mr-4"
                   />
@@ -49,7 +49,7 @@
                 </v-col>
                 <v-col cols="12" class="d-flex align-center">
                   <v-img
-                    src="@/assets/img/hand.png"
+                    src="@/assets/img/salary.png"
                     max-width="60px"
                     class="mr-4"
                   />
@@ -59,7 +59,7 @@
                 </v-col>
                 <v-col cols="12" class="d-flex align-center">
                   <v-img
-                    src="@/assets/img/commission (2).png"
+                    src="@/assets/img/refund (3).png"
                     max-width="60px"
                     class="mr-4"
                   />

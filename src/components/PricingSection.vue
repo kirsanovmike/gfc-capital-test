@@ -294,7 +294,7 @@ export default {
         text: "With an increase in the volume of deliveries, profits grow",
       },
       {
-        img: require("@/assets/img/gap big.png"),
+        img: require("@/assets/img/gap.png"),
         title: "No cash gap",
         text: "Use the tool if there is not enough money",
       },

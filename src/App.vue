@@ -1,11 +1,13 @@
 <template>
   <v-app>
+    <notifications group="email" />
     <navigation :color="color" :flat="flat" />
-    <v-main style="padding-top: 60px;">
+    <v-main style="padding-top: 60px">
       <home />
+      <about-us />
       <about />
-      <!-- <download /> -->
       <pricing />
+      <!-- <download /> -->
       <contact />
     </v-main>
     <v-scale-transition>
@@ -29,7 +31,6 @@
 
 <style scoped>
 .v-main {
-  background-image: url("~@/assets/img/bgMain.png");
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
@@ -44,6 +45,7 @@ import about from "./components/AboutSection";
 // import download from "./components/DownloadSection";
 import pricing from "./components/PricingSection";
 import contact from "./components/ContactSection";
+import AboutUs from "./components/AboutUs.vue";
 
 export default {
   name: "App",
@@ -56,6 +58,7 @@ export default {
     // download,
     pricing,
     contact,
+    AboutUs,
   },
 
   data: () => ({
@@ -96,3 +99,19 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+.vue-notification-group {
+  width: 60% !important;
+  max-width: 300px;
+  top: auto !important;
+  bottom: 0px !important;
+}
+
+.vue-notification {
+  color: white;
+  background: #128c76 !important;
+  opacity: 0.95;
+  border-left: 5px solid #0c5e4f !important;
+}
+</style>

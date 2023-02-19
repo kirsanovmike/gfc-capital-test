@@ -1,14 +1,24 @@
 <template>
-  <v-container class="px-0" fluid>
+  <v-container v-resize="onResize" class="px-0" fluid>
     <section id="hero">
-      <v-parallax src="@/assets/img/bg.jpg" height="860">
-        <v-row align="center" justify="center">
+      <v-parallax src="@/assets/img/bg.jpg" :height="innerHeight * 0.9">
+        <v-row align="start" justify="center">
           <v-col cols="10">
-            <v-row align="center" justify="center">
-              <v-col class="mt-n8" cols="12" md="6" xl="8">
-                <h1 class="display-2 font-weight-bold mb-4 mt-n10">
-                  GET PAID FOR THE PRODUCT TODAY AND INCREASE YOUR CAPABILITIES
+            <v-row class="mt-12" align="start" justify="center">
+              <v-col cols="12" md="6" xl="8">
+                <h1
+                  class="display-2 font-weight-bold mb-4"
+                  style="font-size: 37px !important"
+                >
+                  GET PAID FOR THE PRODUCT TODAY AND INCREASE
+                  YOUR CAPABILITIES
                 </h1>
+              </v-col>
+              <v-col cols="12" md="6" xl="4" class="hidden-sm-and-down">
+              </v-col>
+            </v-row>
+            <v-row class="mt-8" align="end" justify="center">
+              <v-col cols="12" md="6" xl="8">
                 <h1 class="font-weight-light">
                   Trade finance for suppliers of marketplaces and <br />
                   delivery services.
@@ -18,7 +28,7 @@
                   dark
                   color="#128C76"
                   @click="$vuetify.goTo('#aboutus')"
-                  class="mt-5"
+                  class="mt-8"
                 >
                   Find more
                   <v-icon class="ml-2">mdi-arrow-down</v-icon>
@@ -34,28 +44,6 @@
         </div>
       </v-parallax>
     </section>
-    <section id="aboutus">
-      <v-container fluid id="aboutus" class="mt-n10 pt-0">
-        <v-row class="mt-n10" align="center" justify="center">
-          <v-col class="pt-0" cols="10">
-            <h1 class="font-weight-light display-2 mt-6 ml-n4">About us</h1>
-            <h1 class="font-weight-light display-1 mb-3 mt-2 ml-n4">Who we are?</h1>
-            <v-row class="mt-6" align="center" justify="space-around">
-              <p>
-                GFC CAPITAL has been operating in the trade finance market since
-                2008. The company is currently developing a trade finance
-                service in Dubai. A group of international investors led by GFC
-                CAPITAL founded a fund to finance trading companies of small and
-                medium-sized businesses.
-              </p>
-            </v-row>
-          </v-col>
-        </v-row>
-        <div class="svg-border-waves">
-          <img src="~@/assets/img/wave2.svg" />
-        </div>
-      </v-container>
-    </section>
   </v-container>
 </template>
 
@@ -65,6 +53,7 @@ export default {
     return {
       dialog: false,
       videoId: "i8IvvHJssWE",
+      innerHeight: 860,
     };
   },
   watch: {
@@ -74,12 +63,18 @@ export default {
       }
     },
   },
+  mounted() {
+    this.onResize();
+  },
   methods: {
     ready(event) {
       this.player = event.target;
     },
     playing(event) {
       // The player is playing a video.
+    },
+    onResize() {
+      this.innerHeight = window.innerHeight;
     },
     change() {
       // when you change the value, the player will also change.
